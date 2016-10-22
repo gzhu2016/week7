@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>正六边形函数</title>
+</head>
+<body>
+<canvas id="canvas"  style="border:1px solid #aaaaaa; display:block;  margin:50px auto;" width="800" height="800">
+    你的浏览器居然不支持canvas？！赶快换一个吧！！！
+</canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    context.beginPath();
+    context.rect(0, 0, 800, 600);
+    context.fillStyle = "white";
+    context.fill();
+
+    function drawPath(x, y, n, r) {
+        var i, ang;
+        ang = Math.PI * 2 / n //旋转的角度
+        context.save();
+        context.fillStyle = "yellow";
+        context.strokeStyle = "orange"
+        context.lineWidth = 5;
+        context.translate(x, y); //将原点移到x,y处，即要画的多边形中心
+        context.moveTo(0, -r); //距中心r距离处画点
+
+        context.beginPath();
+        for (i = 0; i < n; i++) {
+            context.rotate(ang) //旋转
+            context.lineTo(0, -r); //据中心r距离处连线
+        }
+        context.closePath();
+        context.stroke();
+        context.fill();
+        context.restore(); //返回原始状态
+    }
+
+    drawPath(400,400, 6, 200) //在400,400处画一个半径为200的六边形
+
+</script>
+</body>
+
+</html>
