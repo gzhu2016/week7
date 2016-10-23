@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+<div id="canvas-warp">
+    <canvas id="canvas" style="=border: 1px solid #aaaaaa;display: block;margin:50px auto; ">
+        你的浏览器太破换一个吧！
+    </canvas>
+</div>
+
+<script src="js.js"></script>
+<script>
+
+    var canvas=document.getElementById("canvas");
+    canvas.width=800;
+    canvas.height=800;
+    var context=canvas.getContext("2d");
+    var i=Math.sqrt(3)*300;
+    six(context,250,125,300,"#ffffff","#ff66ff ");
+    draw(context,100,200,600,i,"yellow","yellow");
+    draw2(context,400,50,600,i,"yellow","yellow");
+    for(var i=0;i<=20;i++) {
+        drawrect(context, 200+10*i, 185+10*i, 400-20*i, 400-20*i, "black", "black");
+        drawrect(context, 205+10*i, 190+10*i, 390-20*i, 390-20*i, "#ffffff", "black");
+    }
+</script>
+
+</body>
+</html>

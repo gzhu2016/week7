@@ -1,0 +1,9 @@
+body {
+    background: url("../img/u=1077943002,2223024709&fm=21&gp=0.jpg")repeat;
+}
+
+#canvas {
+    border: 1px solid #aaaaaa;
+    display: block;
+    margin: 50px auto;
+}
