@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>正六边形</title>
+<style type="text/css">
+#canvas{
+	display:block;
+	margin:50px auto;
+	border:1px solid #AAAAAA;
+}
+</style>
+</head>
+
+<body>
+<div id="canvas-warp">
+    <canvas id="canvas">
+    
+    </canvas>
+</div>
+
+<script type="text/javascript">
+    window.onload=function(){
+		var canvas=document.getElementById("canvas");
+		canvas.width=600;
+		canvas.height=600;
+		var context=canvas.getContext("2d");
+		
+		DrawHexagon(context,100,0,200,"yellow",3,"red");
+		DrawHexagon(context,210,390,100,"red",6,"blue");
+		DrawHexagon(context,450,300,60,"blue",9,"yellow");
+	}
+	
+	function DrawHexagon(cxt,x,y,sideLength,fillColor,borderWidth,borderColor){
+		cxt.beginPath();
+		cxt.moveTo(x,y);
+		cxt.lineTo(x+sideLength,y);
+		cxt.lineTo(x+3*sideLength/2,y+173*sideLength/200);
+		cxt.lineTo(x+sideLength,y+173*sideLength/100);
+		cxt.lineTo(x,y+173*sideLength/100);
+		cxt.lineTo(x-sideLength/2,y+173*sideLength/200);
+		cxt.lineTo(x,y);
+		cxt.closePath();
+		
+		cxt.fillStyle=fillColor;
+		cxt.lineWidth=borderWidth;
+		cxt.strokeStyle=borderColor;
+		
+		cxt.fill();
+		cxt.stroke();
+		
+		
+	}
+</script>
+</body>
+</html>
