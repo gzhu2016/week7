@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>六芒星</title>
+</head>
+<body>
+<div id="canvas-warp">
+    <canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+        你的浏览器居然不支持canvas？赶快换一个
+    </canvas>
+</div>
+
+<script>
+    window.onload = function () {
+
+
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 600;
+        var context = canvas.getContext("2d");
+
+        liu( context,300, 300, 100);
+
+
+    };
+
+
+    function liu(cxt, x, y, r) {   //六芒星函数
+       var zhi = Math.cos(Math.PI / 6);  //cos(pi/6)的值
+
+        cxt.beginPath();
+        cxt.moveTo(x,y + (r * 0.5));
+        cxt.lineTo(x - r * zhi, y + (r * 0.5));
+        cxt.lineTo(x, y - r);
+        cxt.lineTo(x + r * zhi, y + (r * 0.5));
+        cxt.closePath();
+        cxt.lineWidth=5;
+        cxt.strokeStyle="blue";
+        cxt.fillStyle="red";
+        cxt.fill();
+        cxt.stroke();             //正三角
+
+        cxt.beginPath();
+        cxt.moveTo(x, y - (r * 0.5));
+        cxt.lineTo(x - r * zhi, y - (r * 0.5));
+        cxt.lineTo(x, y + r);
+        cxt.lineTo(x + r * zhi, y - (r * 0.5));
+        cxt.closePath();
+        cxt.lineWidth=5;
+        cxt.strokeStyle="blue";
+        cxt.fillStyle="red";
+        cxt.fill();
+        cxt.stroke();            //倒三角
+
+        cxt.beginPath();
+        cxt.arc(x,y,r,0,Math.PI*2,true);
+        cxt.closePath();
+        cxt.lineWidth=5;
+        cxt.strokeStyle="blue";
+        cxt.stroke();       //内圆
+
+        cxt.beginPath();
+        cxt.arc(x,y,r+10,0,Math.PI*2,true);
+        cxt.closePath();
+        cxt.lineWidth=5;
+        cxt.strokeStyle="blue";
+        cxt.stroke();     //外圆
+
+
+    }
+
+
+</script>
+</body>
+</html>
