@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>魔性矩形</title>
+</head>
+<body>
+<div id="canvas-warp">
+    <canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+        你的浏览器居然不支持canvas？赶快换一个
+    </canvas>
+</div>
+
+<script>
+    window.onload = function () {
+
+
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 600;
+        var context = canvas.getContext("2d");
+
+        context.beginPath();
+        for (var i = 0; i <= 20; i++) {
+            juxing1(context, 200 + 20 * i, 100 + 20 * i, 400 - 40 * i, 400 - 40 * i);
+            juxing2(context, 205 + 20 * i, 105 + 20 * i, 390 - 40 * i, 390 - 40 * i);
+        }
+
+
+    };
+
+    function juxing1(cxt, x, y, width, height) {     //黑边
+        cxt.beginPath();
+        cxt.rect(x, y, width, height);
+        cxt.lineWidth = 5;
+        cxt.strokeStyle = "black";
+
+        cxt.stroke();
+    }
+
+    function juxing2(cxt, x, y, width, height) {    //白边
+        cxt.beginPath();
+        cxt.rect(x, y, width, height);
+        cxt.lineWidth = 5;
+        cxt.strokeStyle = "while";
+
+        cxt.stroke();
+    }
+
+
+</script>
+</body>
+</html>

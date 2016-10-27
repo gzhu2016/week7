@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>六边形</title>
+</head>
+<body>
+<div id="canvas-warp">
+    <canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+        你的浏览器居然不支持canvas？赶快换一个
+    </canvas>
+</div>
+
+<script>
+    window.onload = function () {
+
+
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 600;
+        var context = canvas.getContext("2d");
+
+        liu(context, 300, 300, 100);
+
+
+    };
+
+
+    function liu(cxt, x, y, r) {     //六边形函数
+        var bian = Math.cos(Math.PI / 6);  //bian=y到上下边的长度
+
+
+        cxt.beginPath();
+        cxt.moveTo(x - 0.5 * r, y + (r * bian));
+        cxt.lineTo(x - r, y);
+        cxt.lineTo(x - 0.5 * r, y - (r * bian));
+        cxt.lineTo(x + 0.5 * r, y + -(r * bian));
+        cxt.lineTo(x + r, y);
+        cxt.lineTo(x + 0.5 * r, y + (r * bian));
+        cxt.closePath();
+
+        cxt.lineWidth = 5;
+        cxt.strokeStyle = "blue";
+        cxt.stroke();
+    }
+
+
+</script>
+</body>
+</html>
