@@ -1,0 +1,9 @@
+body {
+    background: url("../img/bannerCity.png") repeat;
+}
+
+#canvas {
+    background: url("../img/bg2.jpg");
+    display: block;
+    margin: 100px auto;
+}
