@@ -1,0 +1,13 @@
+function hexagon(x,y,length){ <!--x,y分别是正六边形的中心的横坐标和纵坐标-->
+    context.beginPath();
+    context.moveTo(x-length/2,y-length/2);
+    context.lineTo(x+length/2,y-length/2);
+    context.lineTo(x+length,y);
+    context.lineTo(x+length/2,y+length/2);
+    context.lineTo(x-length/2,y+length/2);
+    context.lineTo(x-length,y);
+    context.closePath();
+    context.strokeStyle("black");
+    context.lineWidth(5);
+    context.stroke();
+}
