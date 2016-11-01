@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正六边形</title>
+</head>
+<body>
+<div id ="canvas-warp">
+    <canvas id = "canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+
+    </canvas>
+</div>
+
+<script>
+    window.onload = function( ){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        var context = canvas.getContext("2d");
+
+        drawHexagonal(context, 300, 400, 400);
+
+        function drawHexagonal(ctx, r, x, y){
+            ctx.beginPath();
+            for(var i = 0; i < 6; i++){
+                ctx.lineTo(Math.cos((i*60) / 180 * Math.PI) * r + x,
+                        -Math.sin((i*60) / 180 * Math.PI) * r + y
+                        );
+            }
+            ctx.closePath();
+            ctx.stroke();
+        }
+    }
+
+</script>
+</body>
+</html>
