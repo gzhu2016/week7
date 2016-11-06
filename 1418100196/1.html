@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>绘制六芒星</title>
+</head>
+<body>
+<div id="canvas-warp">
+    <canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+        你的浏览器竟然不支持Canvas？！赶快换一个吧！！
+    </canvas>
+</div>
+
+<script>
+    window.onload=function() {
+        var canvas = document.getElementById("canvas");
+        canvas.width =800;
+        canvas.height =800;
+        var context = canvas.getContext("2d");
+        context.lineWidth=5;
+        drawHexagram(context,0,200,173,56);
+    }
+    function drawHexagram(cxt,x1,x2,y1,z){
+        cxt.beginPath();
+        cxt.moveTo((x1+x2)/2,y1-(Math.sqrt(3)*(x2-x1)/2));
+        cxt.lineTo(x1,y1);
+        cxt.lineTo(x2,y1);
+        cxt.closePath();
+        cxt.stroke();
+        cxt.beginPath();
+        cxt.moveTo((x1+x2)/2,(y1-(Math.sqrt(3)*(x2-x1)/2))+y1*4/3);
+        cxt.lineTo(x1,y1/3);
+        cxt.lineTo(x2,y1/3);
+        cxt.closePath();
+        cxt.stroke();
+    }
+
+</script>
+
+</body>
+</html>

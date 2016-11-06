@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>绘制正六边形</title>
+</head>
+<div id="canvas-warp">
+    <canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+        你的浏览器竟然不支持Canvas？！赶快换一个吧！！
+    </canvas>
+</div>
+<body>
+<script>
+    window.onload=function() {
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        var context = canvas.getContext("2d");
+        context.lineWidth = 10;
+        drawHexagon(context,300,400,400);
+    }
+    function drawHexagon(cxt,R,x,y)
+    {    cxt.beginPath();
+        for(var i=0;i<6;i++) {
+        cxt.lineTo(Math.cos((0+i*60)/180*Math.PI)*R+x,-Math.sin((0+i*60)/180*Math.PI)*R+y);
+    }
+        cxt.closePath();
+        cxt.stroke();
+
+
+    }
+
+</script>
+
+</body>
+</html>
