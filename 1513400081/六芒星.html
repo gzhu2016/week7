@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div id="canvas-warp">
+    <canvas id="canvas" style="border:1px solid #aaaaaa; display: block; margin: 50px auto;">
+        您的浏览器不支持canvas，请更换。
+    </canvas>
+</div>
+
+<script>
+    window.onload=function(){
+        var canvas=document.getElementById("canvas");
+        canvas.width=800;
+        canvas.height=600;
+        var context=canvas.getContext("2d")
+
+        context.beginPath();
+        context.moveTo(400, 200)
+        context.lineTo(400 - 100 * Math.sqrt(3), 500)
+        context.lineTo(400 + 100 * Math.sqrt(3), 500)
+        context.closePath();
+        context.fill();
+        context.stroke();
+        context.fillStyle="yellow";
+        context.strokeStyle="yellow";
+        context.lineWidth=5;
+
+        context.stroke();
+        context.beginPath();
+        context.moveTo(400 - 100 * Math.sqrt(3), 300)
+        context.lineTo(400 + 100 * Math.sqrt(3), 300)
+        context.lineTo(400, 600)
+        context.closePath();
+        context.fill();
+        context.stroke();
+
+        context.fillStyle="yellow";
+        context.strokeStyle="yellow";
+        context.lineWidth=5;
+
+        context.stroke();
+    }
+</script>
+</body>
+</html>
