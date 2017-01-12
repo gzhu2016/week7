@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        var context = canvas.getContext("2d");
+
+        function drawsexangle(cxt, x, y, a) {
+            cxt.beginPath();
+            cxt.moveTo(x, y);
+            cxt.lineTo(x + 50 * 1.732, 50 + y);
+            cxt.lineTo(x + 50 * 1.732, 150 + y);
+            cxt.lineTo(x , y+200);
+            cxt.lineTo(x - 50 * 1.732, y + 150);
+            cxt.lineTo(x - 50 * 1.732, y + 50);
+            cxt.closePath();
+            cxt.fillStyle="red";
+            cxt.strokeStyle="green";
+            cxt.lineWidth="5";
+            cxt.fill();
+            cxt.stroke();
+    }
+
+    drawsexangle(context,400,400,100);
+
+    }
+</script>
+
+</body>
+</html>
