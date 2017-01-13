@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>正六边形</title>
+</head>
+
+<body>
+<canvas id="myCanvas" width='1000' height='1000'></canvas>
+<script>
+    var myCanvas = document.getElementById("myCanvas");
+    var context = myCanvas.getContext("2d");
+
+    function drawPath(x, y, n, r) {
+        var i, ang;
+        ang = Math.PI * 2 / n ;//旋转的角度
+
+        context.fillStyle = "white";
+        context.strokeStyle = "black";
+        context.lineWidth = 10;
+        context.translate(x, y); //原点移到x,y处，即要画的多边形中心
+        context.moveTo(0, -r); //据中心r距离处画点
+        context.beginPath();
+        for (i = 0; i < n; i++) {
+            context.rotate(ang) //旋转
+            context.lineTo(0, -r); //据中心r距离处连线
+        }
+        context.closePath();
+        context.stroke();
+        context.fill();
+
+    }
+
+    drawPath(300,300, 6, 100);
+
+</script>
+</body>
+
+</html>
