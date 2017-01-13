@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>绘制六芒星</title>
+</head>
+<body>
+<div id="canvas-warp">
+    <canvas id="canvas" width='500' height='500' style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+        你的浏览器竟然不支持Canvas？！赶快换一个吧！！
+    </canvas>
+</div>
+
+<script type="text/javascript">
+    var canvas = document.querySelector('#canvas'),
+            context = canvas.getContext('2d');
+
+    var width = canvas.width,
+            height = canvas.height;
+
+    // 原点坐标
+    var originX = width / 2,
+            originY = height / 2,
+            radius = 100;
+
+    context.lineWidth = 1;
+    context.translate(originX, originY);
+    for (var i = 0; i < 6; i++) {
+        // 画完三角形后旋转一半角度画另一个三角形
+        if (i === 3) {
+            context.rotate(Math.PI * 2 / 6);
+        }
+        context.moveTo(0, -radius);
+        context.lineTo(radius * Math.sin(Math.PI / 3), radius / 2);
+        context.stroke();
+        context.rotate(Math.PI * 2 / 3);
+    }
+</script>
+</body>
+</html>
