@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>绘制正六边形</title>
+</head>
+<body>
+<canvas id = "myCanvas" width = '500' height = '500'></canvas>
+<script>
+
+    var myCanvas = document.getElementById("myCanvas");
+    var context =  myCanvas.getContext("2d");
+
+    function drawPath(x, y, n, r)
+    {
+        var i,ang;
+        ang = Math.PI*2/n
+
+        context.fillStyle ="black";
+        context.strokeStyle ="black";
+        context.lineWidth = 2;
+        context.translate(x, y);
+        context.moveTo(0, -r);
+        context.beginPath();
+        for(i = 0;i < n; i ++)
+        {
+            context.rotate(ang)
+            context.lineTo(0, -r);
+        }
+        context.closePath();
+        context.stroke();
+        context.fill();
+
+    }
+    drawPath(400,200,6,100)
+
+
+</script>
+</body>
+</html>

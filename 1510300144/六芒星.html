@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+  <html>
+  <head lang="en">
+     <meta charset="UTF-8">
+       <title>绘制六芒星</title>
+   </head>
+7   <body>
+8   <div id="canvas-warp">
+   <canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+           你的浏览器竟然不支持Canvas？！赶快换一个吧！！
+   </canvas>
+  </div>
+
+<script>
+       window.onload=function() {
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+           canvas.width =200;
+           canvas.height =250;
+           drawstar(context,0,200,173,56);
+    }
+     function drawstar(cxt,x1,x2,y1,z) {
+         cxt.beginPath();
+         cxt.moveTo((x1 + x2) / 2, y1 - (Math.sqrt(3) * (x2 - x1) / 2));
+         cxt.lineTo(x1, y1);
+         cxt.lineTo(x2, y1);
+         cxt.closePath();
+         cxt.fill();
+         cxt.stroke();
+
+         cxt.beginPath();
+         cxt.moveTo((x1 + x2) / 2, (y1 - (Math.sqrt(3) * (x2 - x1) / 2)) + y1 * 4 / 3);
+         cxt.lineTo(x1, y1 / 3);
+         cxt.lineTo(x2, y1 / 3);
+         cxt.closePath();
+         cxt.fill();
+         cxt.stroke();
+         cxt.fillStyle = "black";
+         cxt.lineWidth = 5;
+         cxt.strokeStyle = "black";
+
+
+
+     }
+
+</script>
+
+</body>
+</html>
